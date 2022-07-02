@@ -10,7 +10,7 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   function addNote(props) {
-    Axios.post("http://localhost:3001/create", {
+    Axios.post(`${process.env.APP_URL}/create`, {
       title: props.title,
       content: props.content,
     }).then((response) => {
