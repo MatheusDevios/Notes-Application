@@ -23,12 +23,13 @@ function CreateArea(props) {
   }
 
   function submitNote(event) {
+    console.log(note)
     props.onAdd(note);
     setNote({
       title: "",
       content: ""
     });
-    event.preventDefault();
+    // event.preventDefault();
   }
 
   function expand() {
