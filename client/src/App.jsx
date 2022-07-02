@@ -8,9 +8,9 @@ import { useEffect } from "react";
 
 function App() {
   const [notes, setNotes] = useState([]);
-
+  // const url = process.env.REACT_APP_URL;
   function addNote(props) {
-    Axios.post(`${process.env.APP_URL}/create`, {
+    Axios.post(`http://localhost:3001/create`, {
       title: props.title,
       content: props.content,
     }).then((response) => {
