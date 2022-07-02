@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose.connect("mongodb://localhost:27017/notesDB");
+mongoose.connect("mongodb+srv://Matheus:notesmatehus@notes.aj2f3.mongodb.net/?retryWrites=true&w=majority");
 
 const noteSchema = new mongoose.Schema({
   title: String,

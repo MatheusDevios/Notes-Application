@@ -26,6 +26,8 @@ function App() {
     });
   }
 
+  // mongodb+srv://Matheus:notesmatehus@notes.aj2f3.mongodb.net/?retryWrites=true&w=majority
+
   function deleteNote(_id) {
     Axios.delete(`http://localhost:3001/delete/${_id}`).then(() => {
       setNotes(
