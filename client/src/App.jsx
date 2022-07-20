@@ -10,10 +10,13 @@ function App() {
   const [notes, setNotes] = useState([]);
   // const url = process.env.REACT_APP_URL;
   function addNote(props) {
-    Axios.post(`http://localhost:3001/create`, {
-      title: props.title,
-      content: props.content,
-    }).then((response) => {
+    Axios.post(
+      `https://keeper-app-89be6-default-rtdb.europe-west1.firebasedatabase.app/notes.json`,
+      {
+        title: props.title,
+        content: props.content,
+      }
+    ).then((response) => {
       console.log("Added new note to db: ", response.body);
       // setNotes([
       //   ...notes,
@@ -29,7 +32,9 @@ function App() {
   // mongodb+srv://Matheus:notesmatehus@notes.aj2f3.mongodb.net/?retryWrites=true&w=majority
 
   function deleteNote(_id) {
-    Axios.delete(`http://localhost:3001/delete/${_id}`).then(() => {
+    Axios.delete(
+      `https://keeper-app-89be6-default-rtdb.europe-west1.firebasedatabase.app/notes.json/${_id}`
+    ).then(() => {
       setNotes(
         notes.filter((value) => {
           return value._id != _id;
@@ -39,14 +44,16 @@ function App() {
   }
 
   function getNotes() {
-    Axios.get("http://localhost:3001/notes").then((response) => {
+    Axios.get(
+      "https://keeper-app-89be6-default-rtdb.europe-west1.firebasedatabase.app/notes.json"
+    ).then((response) => {
       setNotes(response.data);
     });
   }
 
   useEffect(() => {
     getNotes();
-  }, [notes])
+  }, [notes]);
 
   return (
     <div>
